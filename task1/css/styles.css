@@ -10,11 +10,15 @@ p {
 
 .blocks {
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
   white-space: nowrap;
 }
 
+.blocks__row1,
+.blocks__row2 {
+  display: flex;
+}
+
+.blocks,
 .blocks__column1,
 .blocks__column2,
 .blocks__column3 {
@@ -22,8 +26,10 @@ p {
   flex-direction: column;
 }
 
+.blocks__row1,
 .blocks__subcolumn1,
-.blocks__item1 {
+.blocks__item1,
+.blocks__item2 {
   flex-grow: 1;
 }
 
@@ -72,6 +78,10 @@ p {
 .blocks__subcolumn1 .blocks__item3,
 .blocks__subcolumn1 .blocks__item4 {
   border-right: 0px;
+  border-bottom: 0px;
+}
+
+.blocks__row1 .blocks__column3 .blocks__subcolumn2 .blocks__item3 {
   border-bottom: 0px;
 }
 
