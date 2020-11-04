@@ -29,11 +29,15 @@ td {
 }
 
 .hCol {
-  width: 10%;
+  width: 15%;
 }
 
+.active {
 
-/* tr td:last-of-type,
+}
+
+tr td:last-of-type,
 tr th:last-of-type {
   display: none;
-} */
+  width: 100%;
+}

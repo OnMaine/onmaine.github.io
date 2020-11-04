@@ -91,7 +91,7 @@ let users = `[{
 users = JSON.parse(users);
 
 function createTable(users) {
-  let tBody = document.getElementById('userdata2').tBodies[0];
+  let tBody = document.getElementById('userdata').tBodies[0];
   users.forEach((item) => {
     var row = tBody.insertRow();
     for (key in item) {
@@ -102,10 +102,33 @@ function createTable(users) {
         var info = item.info;
         var text = row.insertCell();
         for (key in info) {
-          text.innerHTML = info[key];
+          let infoDate = info[key];
+          text.innerHTML = infoDate;
         }
       };
     }
   });
 };
 createTable(users);
+
+//
+// $(document).ready(function(){
+//    $("#userdata").click(function(event){
+//      $('tr td:last-of-type, tr th:last-of-type').show();
+//      $('tr td:last-of-type, tr th:last-of-type').hide();
+//    });
+//  });
+
+
+
+ $(document).ready(function() {
+   $("#userdata tbody tr").on("click", function() {
+     var myIndex = $("#userdata tbody tr").index(this);
+     $(this).parents("table").find("tr").each(function() {
+       $('tr th:last-of-type').show();
+       // $(this).find("th:eq(" + myIndex + ")").show();
+       // $('tr td:last-of-type').find("td:eq(" + myIndex + ")").show();
+       $('tr td:last-of-type').show();
+     });
+   });
+ });
