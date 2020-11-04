@@ -31,11 +31,9 @@ td {
 .hCol {
   width: 10%;
 }
-/*
-.aaa {
-  display: none;
-}
 
-tr td:last-of-type {
+
+/* tr td:last-of-type,
+tr th:last-of-type {
   display: none;
 } */
