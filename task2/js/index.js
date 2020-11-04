@@ -95,10 +95,17 @@ function createTable(users) {
   users.forEach((item) => {
     var row = tBody.insertRow();
     for (key in item) {
-      var cell = row.insertCell();
-      cell.innerHTML = item[key];
+      if (typeof(item[key]) !== "object") {
+        var cell = row.insertCell();
+        cell.innerHTML = item[key];
+      } else {
+        var info = item.info;
+        var text = row.insertCell();
+        for (key in info) {
+          text.innerHTML = info[key];
+        }
+      };
     }
   });
 };
-
 createTable(users);
