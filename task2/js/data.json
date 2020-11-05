@@ -40,17 +40,6 @@ let myJson = [{
 }]
 
 
-
-
-
-
-
-
-
-
-
-
-
 let users = `[{
   "phone": "0987658923",
   "info": {
