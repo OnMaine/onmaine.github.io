@@ -79,19 +79,8 @@ let users = `[{
 
 users = $.parseJSON(users);
 
-//
-//
-// $(document).ready(function() {
-//   $("#userdata tbody tr").on("click", function() {
-//     let myIndex = $("#userdata tbody tr").index(this);
-//     $(this).parents("table").find("tr").each(function() {
-//
-//         $(this).find("th:eq(" + myIndex + ")").show();
-//     });
-//   });
-// });
 
-//
+
 $(document).on('click', '#userdata tbody td', function(event) {
 
   let $col = $(this);
@@ -108,9 +97,65 @@ $(document).on('click', '#userdata tbody td', function(event) {
                 Работает: ${details.job}
                 Образование: ${details.education}
                 `;
-        console.log(detailsString);
         $('.details-cell').text(detailsString);
+        $('thead tr th:not(:first), tbody tr td:not(tr td:first-of-type)').hide();
+        $('thead tr th:first, tbody tr td:first').css({'width': '500px'});
+
+        $('.details-hCell, .details-cell').show();
       }
     });
   });
 });
+
+
+
+
+// $(document).ready(function() {
+//   $("#userdata tbody tr").on("click", function() {
+//     let myIndex = $("#userdata tbody tr").index(this);
+//     $(this).parents("table").find("tr").each(function() {
+//       $.each(users, function(i, obj) {
+//
+//       });
+//       $(this).find("th:eq(" + myIndex + ")").remove();
+//       $(this).find("td:eq(" + myIndex + ")").remove();
+//       $('tr td:last-of-type').find("td:eq(" + myIndex + ")").alert("");
+//     });
+//   });
+// });
+
+// $('tr th:last-of-type').show();
+// $(this).find("th:eq(" + myIndex + ")").show();
+// $('tr td:last-of-type').find("td:eq(" + myIndex + ")").show();
+// $('tr td:last-of-type').show();
+
+
+
+
+
+
+
+
+
+
+//
+// $(document).ready(function(){
+//    $("#userdata").click(function(event){
+//      $('tr td:last-of-type, tr th:last-of-type').show();
+//      $('tr td:last-of-type, tr th:last-of-type').hide();
+//    });
+//  });
+
+
+ //
+ // $(document).ready(function() {
+ //   $("#userdata tbody tr").on("click", function() {
+ //     var myIndex = $("#userdata tbody tr").index(this);
+ //     $(this).parents("table").find("tr").each(function() {
+ //       $('tr th:last-of-type').show();
+ //       // $(this).find("th:eq(" + myIndex + ")").show();
+ //       // $('tr td:last-of-type').find("td:eq(" + myIndex + ")").show();
+ //       $('tr td:last-of-type').show();
+ //     });
+ //   });
+ // });
