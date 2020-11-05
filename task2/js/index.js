@@ -60,8 +60,6 @@ $(document).on('click', '#userdata tbody td', function(event) {
   });
 });
 
-
-
 $(document).on('click', '.btn-close', function(event) {
   location.reload();
 });
