@@ -102,16 +102,14 @@ $(document).on('click', '#userdata tbody td', function(event) {
     $.each(users, function(key, val) {
       if (key == "phone" && val == phone) {
         let details = users.info;
-        const detailsString = `
-                Добавлен: ${details.data}
+        const detailsString = `Добавлен: ${details.data}
                 Возраст: ${details.age}
                 Семейное положение: ${details.maritalStatus}
                 Работает: ${details.job}
                 Образование: ${details.education}
                 `;
         console.log(detailsString);
-        documentQuerySelector(‘.details-cell’).text(detailsString)
-        $('.my #awesome selector');
+        $('.details-cell').text(detailsString);
       }
     });
   });
