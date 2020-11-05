@@ -25,7 +25,7 @@ th {
 }
 
 td {
-  padding: 15px 5px;
+  padding: 5px;
 }
 
 .details-cell {
@@ -36,12 +36,12 @@ td {
 
 .details-cell {
   pointer-events: none;
-  box-sizing: border-box;
 }
 
 .details-content {
   display: flex;
   justify-content: space-between;
+  padding-left: 10px;
 }
 
 .btn-close {
@@ -80,17 +80,33 @@ tr.selected {
   background-color: #b8dcb8;
 }
 
-tr.selected td:first-of-type::after {
+tr.selected td.name::after {
   content: '';
   position: absolute;
   left: 511px;
-  border: 10px solid transparent;
-  border-left: 10px solid green;
+  display: block;
+  top: 30%;
+  bottom: 30%;
+  border: 15px solid transparent;
+  border-left: 15px solid #32CD32;
   z-index: 999;
 }
 
+.name {
+  position: relative;
+}
+
+.name-item {
+  padding-top: 30px;
+  display: none;
+}
+
+.name-mail {
+  font-style: italic;
+}
+
 @media (max-width: 900px) {
-  tr.selected td:first-of-type::after {
+  tr.selected td.name::after {
     display: none
   }
 

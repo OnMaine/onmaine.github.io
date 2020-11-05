@@ -46,6 +46,11 @@ $(document).on('click', '#userdata tbody td', function(event) {
                 `;
         $('.details-box').text(detailsString);
         $('thead tr th:not(:first), tbody tr td:not(tr td:first-of-type)').hide();
+        $('.name-item').show();
+        $('.name-item').css({
+          'display': 'flex',
+          'justify-content': 'space-between'
+        });
         $('thead tr th:first, tbody tr td:first').css({
           'width': '500px'
         });
