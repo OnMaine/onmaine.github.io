@@ -41,7 +41,6 @@ let users = `[{
 
 users = $.parseJSON(users);
 
-
 // create a table from the array
 function createTable(users) {
   let tBody = document.getElementById('userdata').tBodies[0];
@@ -50,7 +49,7 @@ function createTable(users) {
     for (key in item) {
       if (typeof(item[key]) !== 'object') {
         let cell = row.insertCell();
-        cell.innerHTML = item[key];
+        cell.textContent = item[key];
       };
     }
   });
@@ -73,23 +72,19 @@ $(document).on('click', '#userdata td', function(event) {
       $('#userdata td').not('td:first-of-type').hide();
       $('.details-cell').addClass('active');
       $('#userdata').outerWidth('501px');
+      // add nameBox on click
+      $.each(user, function(key, value) {
+        $("#" + key).text(value);
+      });
+
     }
   });
   // add nameBox on click
   $('#userdata tr').each(function(row) {
     $(this).find('td:first-of-type').each(function(cell) {
       $(this).addClass('name');
-      let nameCell = $(this);
-      let name = nameCell.text();
-      $.each(users, function(index, user) {
-        if (user.name === name) {
-          const nameString = `${user.mail} ${user.phone}
-                              `;
-          let nameInfo = $("<div></div>").text(nameString);
-          $(nameInfo).addClass('name-info');
-          $(nameCell).append(nameInfo);
-        }
-      });
+      let asd = $('#name-wrap');
+      $('name').text(asd);
     });
   });
 });
