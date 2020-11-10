@@ -1,33 +1,3 @@
-// let users = `[{
-//   "phone": "0987658923",
-//   "info": {
-//     "data": "11.12.2012",
-//     "age": "25",
-//     "maritalStatus": "замужем",
-//     "job": "Епам, менеджер",
-//     "education": "Высшее, НАУ , Компютерные науки"
-//   }
-// }, {
-//   "phone": "0506123123",
-//   "info": {
-//     "data": "21.05.2018",
-//     "age": "23",
-//     "maritalStatus": "холост",
-//     "job": "Фора, кассир",
-//     "education": "Высшее, НТУ КПИ, Финансы и кредит"
-//   }
-// }, {
-//   "phone": "0966671290",
-//   "info": {
-//     "data": "15.02.2015",
-//     "age": "27",
-//     "maritalStatus": "замужем",
-//     "job": "Кристал, фитнес-тренер",
-//     "education": "Высшее, КНТУ, Физиотерапия и реабилитация"
-//   }
-// }]`;
-
-
 let users = `[{
   "name": "Смородина Алена Александровна",
   "phone": "0987658923",
@@ -96,32 +66,9 @@ $(document).on('click', '#userdata td', function(event) {
   $.each(users, function(index, user) {
     if (user.phone === phone) {
       let details = user.info;
-
-      // const detailsString = `Добавлен: ${details.data}
-      //           Возраст: ${details.age}
-      //           Семейное положение: ${details.maritalStatus}
-      //           Работает: ${details.job}
-      //           Образование: ${details.education}
-      //           `;
-      //
-      //
-      // $('.details-box').text(detailsString);
-      $('#details-table tr').each(function(row) {
-        $(this).find('td').each(function(cell) {
-          $(this).addClass('info');
-        });
+      $.each(details, function(key, value) {
+        $("#" + key).text(value);
       });
-
-      $.each(details, function(index, val) {
-        let detailsInfo = $(`<span> ${val} </span>`);
-        $('.info').append(detailsInfo);
-      });
-
-
-
-
-
-
       $('th').not('.fullname').hide();
       $('#userdata td').not('td:first-of-type').hide();
       $('.details-cell').addClass('active');

@@ -78,10 +78,14 @@ td {
   padding: 15px 0 0 30px;
 }
 
-.info {
+.details-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-title {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
 }
 
 /* btn */
