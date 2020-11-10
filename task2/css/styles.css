@@ -38,6 +38,16 @@ td {
   padding-top: 30px;
 }
 
+.name-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.name-info2 {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* arrow */
 #userdata tr.selected {
   position: relative;

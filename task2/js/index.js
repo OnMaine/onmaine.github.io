@@ -61,6 +61,7 @@ $(document).on('click', '#userdata td', function(event) {
   let $col = $(this);
   $col.parents('tr').addClass('selected').siblings().removeClass('selected');
   let $id = $('.selected td:eq(1)');
+  $('.selected td:first-of-type').addClass('name');
   let phone = $id.text();
   $.each(users, function(index, user) {
     if (user.phone === phone) {
@@ -75,17 +76,11 @@ $(document).on('click', '#userdata td', function(event) {
       // add nameBox on click
       $.each(user, function(key, value) {
         $("#" + key).text(value);
+        let nameCard = $('#name-wrap');
+        $('.selected td:eq(0)').append(nameCard);
+        $('#name-wrap').show();
       });
-
     }
-  });
-  // add nameBox on click
-  $('#userdata tr').each(function(row) {
-    $(this).find('td:first-of-type').each(function(cell) {
-      $(this).addClass('name');
-      let asd = $('#name-wrap');
-      $('name').text(asd);
-    });
   });
 });
 
@@ -103,4 +98,5 @@ $(document).on('click', '.btn-close', function(event) {
   $('th').not('.fullname').show();
   $('tr').removeClass('selected');
   $('#userdata').outerWidth('100%');
+  $('#name-wrap').hide();
 });
