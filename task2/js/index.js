@@ -31,33 +31,33 @@ users = $.parseJSON(users);
 
 $(document).on('click', '#userdata tbody td', function(event) {
   let $col = $(this);
-  let $row = $col.parents('tr').addClass('selected').siblings().removeClass('selected');
+  $col.parents('tr').addClass('selected').siblings().removeClass('selected');
   let $id = $('.selected td:eq(1)');
   let phone = $id.text();
-  $.each(users, function(index, users) {
-    $.each(users, function(key, val) {
-      if (key == "phone" && val == phone) {
-        let details = users.info;
-        const detailsString = `Добавлен: ${details.data}
+  $.each(users, function(index, user) {
+    if (user.phone === phone) {
+      let details = user.info;
+      const detailsString = `Добавлен: ${details.data}
                 Возраст: ${details.age}
                 Семейное положение: ${details.maritalStatus}
                 Работает: ${details.job}
                 Образование: ${details.education}
                 `;
-        $('.details-box').text(detailsString);
-        $('tr th:not(:first), tr td:not(tr td:first-of-type)').hide();
-        $('.name-item, .details-cell').addClass('active');
-        $('table').css({
-          'width': '501px'
-        });
-      }
-    });
+      $('.details-box').text(detailsString);
+      $('th').not('.fullname').hide();
+      $('td').not('td:first-of-type').hide();
+      $('.name-item, .details-cell').addClass('active');
+      $('table').css({
+        'width': '501px'
+      });
+    }
   });
 });
 
 $(document).on('click', '.btn-close', function(event) {
   $('.name-item, .details-cell').removeClass('active');
-  $('tr th:not(:first), tr td:not(tr td:first-of-type)').show();
+  $('td').not('td:first-of-type').show();
+  $('th').not('.fullname').show();
   $('tr').removeClass('selected');
   $('table').css({
     'width': '100%'
