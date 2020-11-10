@@ -34,16 +34,12 @@ td {
   position: relative;
 }
 
-.name-info {
-  padding-top: 30px;
-}
-
 .name-wrap {
   display: flex;
   align-items: flex-end;
 }
 
-.name-info2 {
+.name-info {
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
@@ -60,7 +56,7 @@ td {
   position: absolute;
   left: 500px;
   display: block;
-  bottom: 25%;
+  bottom: 30%;
   border: 20px solid transparent;
   border-left: 20px solid #32CD32;
 }
