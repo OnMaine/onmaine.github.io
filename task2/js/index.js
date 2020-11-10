@@ -71,13 +71,15 @@ let users = `[{
 
 users = $.parseJSON(users);
 
+
+// create a table from the array
 function createTable(users) {
   let tBody = document.getElementById('userdata').tBodies[0];
   users.forEach((item) => {
-    var row = tBody.insertRow();
+    let row = tBody.insertRow();
     for (key in item) {
-      if (typeof(item[key]) !== "object") {
-        var cell = row.insertCell();
+      if (typeof(item[key]) !== 'object') {
+        let cell = row.insertCell();
         cell.innerHTML = item[key];
       };
     }
@@ -86,8 +88,7 @@ function createTable(users) {
 createTable(users);
 
 
-
-$(document).on('click', '#userdata tbody td', function(event) {
+$(document).on('click', '#userdata td', function(event) {
   let $col = $(this);
   $col.parents('tr').addClass('selected').siblings().removeClass('selected');
   let $id = $('.selected td:eq(1)');
@@ -95,21 +96,40 @@ $(document).on('click', '#userdata tbody td', function(event) {
   $.each(users, function(index, user) {
     if (user.phone === phone) {
       let details = user.info;
-      const detailsString = `Добавлен: ${details.data}
-                Возраст: ${details.age}
-                Семейное положение: ${details.maritalStatus}
-                Работает: ${details.job}
-                Образование: ${details.education}
-                `;
-      $('.details-box').text(detailsString);
+
+      // const detailsString = `Добавлен: ${details.data}
+      //           Возраст: ${details.age}
+      //           Семейное положение: ${details.maritalStatus}
+      //           Работает: ${details.job}
+      //           Образование: ${details.education}
+      //           `;
+      //
+      //
+      // $('.details-box').text(detailsString);
+      $('#details-table tr').each(function(row) {
+        $(this).find('td').each(function(cell) {
+          $(this).addClass('info');
+        });
+      });
+
+      $.each(details, function(index, val) {
+        let detailsInfo = $(`<span> ${val} </span>`);
+        $('.info').append(detailsInfo);
+      });
+
+
+
+
+
+
       $('th').not('.fullname').hide();
-      $('td').not('td:first-of-type').hide();
-      $('.name-item, .details-cell').addClass('active');
-      $('table').outerWidth('501px');
+      $('#userdata td').not('td:first-of-type').hide();
+      $('.details-cell').addClass('active');
+      $('#userdata').outerWidth('501px');
     }
   });
   // add nameBox on click
-  $('table tr').each(function(row) {
+  $('#userdata tr').each(function(row) {
     $(this).find('td:first-of-type').each(function(cell) {
       $(this).addClass('name');
       let nameCell = $(this);
@@ -127,16 +147,18 @@ $(document).on('click', '#userdata tbody td', function(event) {
   });
 });
 
+
+// function for close the details
 $(document).on('click', '.btn-close', function(event) {
   $('.details-cell').removeClass('active');
-  $('table tr').each(function(row) {
+  $('#userdata tr').each(function(row) {
     $(this).find('td:first-of-type').each(function(cell) {
       let nameCell = $(this);
       $('.name-info').remove();
     });
   });
-  $('td').not('td:first-of-type').show();
+  $('#userdata td').not('td:first-of-type').show();
   $('th').not('.fullname').show();
   $('tr').removeClass('selected');
-  $('table').outerWidth('100%');
+  $('#userdata').outerWidth('100%');
 });
