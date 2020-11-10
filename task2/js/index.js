@@ -88,12 +88,6 @@ $(document).on('click', '#userdata td', function(event) {
 // function for close the details
 $(document).on('click', '.btn-close', function(event) {
   $('.details-cell').removeClass('active');
-  $('#userdata tr').each(function(row) {
-    $(this).find('td:first-of-type').each(function(cell) {
-      let nameCell = $(this);
-      $('.name-info').remove();
-    });
-  });
   $('#userdata td').not('td:first-of-type').show();
   $('th').not('.fullname').show();
   $('tr').removeClass('selected');

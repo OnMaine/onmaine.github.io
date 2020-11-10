@@ -34,11 +34,6 @@ td {
   position: relative;
 }
 
-.name-wrap {
-  display: flex;
-  align-items: flex-end;
-}
-
 .name-info {
   display: flex;
   justify-content: space-between;
