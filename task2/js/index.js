@@ -45,21 +45,21 @@ $(document).on('click', '#userdata tbody td', function(event) {
                 Образование: ${details.education}
                 `;
         $('.details-box').text(detailsString);
-        $('thead tr th:not(:first), tbody tr td:not(tr td:first-of-type)').hide();
-        $('.name-item').show();
-        $('.name-item').css({
-          'display': 'flex',
-          'justify-content': 'space-between'
+        $('tr th:not(:first), tr td:not(tr td:first-of-type)').hide();
+        $('.name-item, .details-cell').addClass('active');
+        $('table').css({
+          'width': '501px'
         });
-        $('thead tr th:first, tbody tr td:first').css({
-          'width': '500px'
-        });
-        $('.details-hCell, .details-cell').show();
       }
     });
   });
 });
 
 $(document).on('click', '.btn-close', function(event) {
-  location.reload();
+  $('.name-item, .details-cell').removeClass('active');
+  $('tr th:not(:first), tr td:not(tr td:first-of-type)').show();
+  $('tr').removeClass('selected');
+  $('table').css({
+    'width': '100%'
+  });
 });

@@ -3,11 +3,13 @@
   margin: 0;
   padding: 0;
 }
-
-.table {
-  padding-bottom: 250px;
+/* main wrapp */
+.wrapp {
+  display: flex;
+  white-space: pre-line;
 }
 
+/* table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -28,22 +30,60 @@ td {
   padding: 5px;
 }
 
-.details-cell {
-  white-space: pre-line;
-  padding-left: 10px;
+.name {
+  position: relative;
+}
+
+.name-item {
+  padding-top: 30px;
+  display: none;
+  justify-content: space-between;
+}
+
+.name-mail {
+  font-style: italic;
+}
+
+/* arrow */
+tr.selected {
+  position: relative;
   background-color: #b8dcb8;
 }
 
+tr.selected td.name::after {
+  content: '';
+  position: absolute;
+  left: 500px;
+  display: block;
+  bottom: 35%;
+  border: 20px solid transparent;
+  border-left: 20px solid #32CD32;
+}
+
+/* details */
 .details-cell {
-  pointer-events: none;
+  white-space: pre-line;
+  background-color: #b8dcb8;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-left: 0px;
+}
+
+.details-head {
+  display: flex;
+  padding: 5px;
+  border-bottom: 1px solid #000;
+  font-weight: bold;
 }
 
 .details-content {
   display: flex;
   justify-content: space-between;
-  padding-left: 10px;
+  padding: 15px 0 0 30px;
 }
-
+/* btn */
 .btn-close {
   position: relative;
   display: inline-block;
@@ -70,43 +110,13 @@ td {
   transform: rotate(-50deg);
 }
 
-.details-hCell,
-.details-cell {
-  display: none;
-}
-
-tr.selected {
-  position: relative;
-  background-color: #b8dcb8;
-}
-
-tr.selected td.name::after {
-  content: '';
-  position: absolute;
-  left: 511px;
-  display: block;
-  top: 30%;
-  bottom: 30%;
-  border: 15px solid transparent;
-  border-left: 15px solid #32CD32;
-  z-index: 999;
-}
-
-.name {
-  position: relative;
-}
-
-.name-item {
-  padding-top: 30px;
-  display: none;
-}
-
-.name-mail {
-  font-style: italic;
+/* active class for name block in table (clicked) and details-cell */
+.active {
+  display: flex;
 }
 
 @media (max-width: 900px) {
-  tr.selected td.name::after {
+  tr.selected .name::after {
     display: none
   }
 
