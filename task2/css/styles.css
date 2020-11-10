@@ -33,15 +33,19 @@ td {
 .name {
   position: relative;
 }
-
+/*
 .name-item {
   padding-top: 30px;
   display: none;
   justify-content: space-between;
-}
+} */
 
-.name-mail {
+/* .name-mail {
   font-style: italic;
+} */
+
+.name-info {
+  padding-top: 30px;
 }
 
 /* arrow */
@@ -55,7 +59,7 @@ tr.selected td.name::after {
   position: absolute;
   left: 500px;
   display: block;
-  bottom: 35%;
+  bottom: 25%;
   border: 20px solid transparent;
   border-left: 20px solid #32CD32;
 }
