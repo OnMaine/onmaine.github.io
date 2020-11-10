@@ -95,13 +95,11 @@ tr.selected td.name::after {
   margin-right: 10px;
   border-radius: 10px;
   transition: 0.3s ease-out;
+  outline: none;
 }
 
-.btn-close:hover {
-  background-color: #32CD32;
-}
-
-.btn-close::before, .btn-close:after {
+.btn-close::before,
+.btn-close:after {
   content: "";
   position: absolute;
   top: 24px;
@@ -117,6 +115,10 @@ tr.selected td.name::after {
 
 .btn-close:after {
   transform: rotate(-50deg);
+}
+
+.btn-close:hover {
+  background-color: #32CD32;
 }
 
 /* active class for name block in table (clicked) and details-cell */
