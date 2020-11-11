@@ -88,6 +88,9 @@ td {
   display: flex;
   flex-direction: column;
 }
+.details-wrap p {
+  padding-right: 5px;
+}
 
 .details-title {
   display: flex;
