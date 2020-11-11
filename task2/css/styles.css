@@ -56,6 +56,10 @@ td {
   border-left: 20px solid #32CD32;
 }
 
+#mail {
+  font-style: italic;
+}
+
 /* details */
 .details-cell {
   white-space: pre-line;
@@ -132,9 +136,19 @@ td {
   display: flex;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .details-content {
     display: flex;
+    flex-direction: column;
+    font-size: 10px;
+  }
+  .btn-close::before,
+  .btn-close:after {
+    left: 17px;
+    width: 16px;
+    height: 4px;
+  }
+  .details-title {
     flex-direction: column;
   }
 }

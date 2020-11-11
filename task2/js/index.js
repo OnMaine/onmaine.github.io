@@ -56,7 +56,6 @@ function createTable(users) {
 };
 createTable(users);
 
-
 $(document).on('click', '#userdata td', function(event) {
   let $col = $(this);
   $col.parents('tr').addClass('selected').siblings().removeClass('selected');
@@ -83,7 +82,6 @@ $(document).on('click', '#userdata td', function(event) {
     }
   });
 });
-
 
 // function for close the details
 $(document).on('click', '.btn-close', function(event) {
