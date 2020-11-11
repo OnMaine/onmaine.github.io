@@ -44,7 +44,7 @@ users = $.parseJSON(users);
 // create a table from the array
 function createTable(users) {
   let tBody = document.getElementById('userdata').tBodies[0];
-  users.forEach((item) => {
+  users.forEach((item, i) => {
     let row = tBody.insertRow();
     for (key in item) {
       if (typeof(item[key]) !== 'object') {
@@ -60,7 +60,7 @@ $(document).on('click', '#userdata td', function(event) {
   let $col = $(this);
   $col.parents('tr').addClass('selected').siblings().removeClass('selected');
   let $id = $('.selected td:eq(1)');
-  $('.selected td:first-of-type').addClass('name');
+  $('.selected td:first-of-type').addClass('arrow');
   let phone = $id.text();
   $.each(users, function(index, user) {
     if (user.phone === phone) {
@@ -72,14 +72,14 @@ $(document).on('click', '#userdata td', function(event) {
       $('#userdata td').not('td:first-of-type').hide();
       $('.details-cell').addClass('active');
       $('#userdata').outerWidth('501px');
-      // add nameBox on click
-      $.each(user, function(key, value) {
-        $("#" + key).text(value);
-        let nameCard = $('#name-wrap');
-        $('.selected td:eq(0)').append(nameCard);
-        $('#name-wrap').show();
-      });
     }
+    // add nameBox on click
+    $.each(user, function(key, value) {
+      $("#" + key).text(value);
+      let nameCard = $('#name-wrap');
+      $('.selected td:eq(0)').append(nameCard);
+      $('#name-wrap').show();
+    });
   });
 });
 

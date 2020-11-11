@@ -30,7 +30,7 @@ td {
   padding: 5px;
 }
 
-.name {
+.arrow {
   position: relative;
 }
 
@@ -46,7 +46,7 @@ td {
   background-color: #b8dcb8;
 }
 
-#userdata tr.selected td.name::after {
+#userdata tr.selected td.arrow::after {
   content: '';
   position: absolute;
   left: 500px;
